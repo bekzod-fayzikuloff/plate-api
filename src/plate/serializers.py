@@ -16,7 +16,7 @@ class PlateAddSerializer(serializers.ModelSerializer):
         fields = ("id", "plate_number", "plate_area")
 
     def create(self, validated_data):
-        access_areas = list(filter(lambda item: item['code'] == f'{validated_data["plate_area"]}', PLATE_ACCESS_AREA))
+        access_areas = list(filter(lambda item: item["code"] == f'{validated_data["plate_area"]}', PLATE_ACCESS_AREA))
         if not access_areas:
             raise ValidationError("Provide not supported access area")
         plate_area = access_areas.pop()

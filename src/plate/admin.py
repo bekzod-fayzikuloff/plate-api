@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import PlateArea, Plate
+
+from .models import Plate, PlateArea
 
 
 @admin.register(PlateArea)
@@ -11,4 +12,3 @@ class PlateAreaAdmin(admin.ModelAdmin):
 class PlateAdmin(admin.ModelAdmin):
     list_filter = ["plate_area__region"]
     search_fields = ["plate_area__region", "plate_number"]
-
